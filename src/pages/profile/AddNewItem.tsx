@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AddImg from "../../component/ProfilePages/item/AddImg";
 import Address from "../../component/ProfilePages/item/Address";
 import RentingUnit from "../../component/ProfilePages/item/RentingUnit";
-import { axiosClaintApi, endPoints, LongStaleTime } from "../../api/API__information_conect";
+import { axiosClaint, endPoints, LongStaleTime } from "../../api/API__information_conect";
 import { useEffect, useState } from "react";
 import { AddNotification } from "../../utails/message";
 import { useTranslation } from "react-i18next";
@@ -69,7 +69,7 @@ const AddNewItem = () => {
     });
 
     try {
-      await axiosClaintApi.post(endPoints.post.addProducts, formData, {
+      await axiosClaint.post(endPoints.post.addProducts, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
