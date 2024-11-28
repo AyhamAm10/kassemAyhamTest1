@@ -22,7 +22,7 @@ const Slider:React.FC<sliderProps> = ({data , Component , bg  , sliderFn , plusN
     <>
       {
         data &&
-      <div className={`w-full my-10 bg-[${bg}] `}>
+      <div className={`w-full my-10 bg-[${bg}]`}>
         <Swiper
           spaceBetween={30}
           slidesPerView={plusNumber ?screenSize -1  : screenSize}

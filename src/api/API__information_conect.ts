@@ -53,14 +53,16 @@ export const axiosClaint = axios.create({
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
+    Accept:"application/json",
     // Authorization: `Bearer ${localStorage.getItem("YJOZ_token")} `
-    Authorization: `Bearer ${validToken}`
+    Authorization: `Bearer ${validToken}`,
+
 
   },
 });
 
-export const axiosClaintApi = axios.create({
-  baseURL: `${ApiUrl}`,
+export const axiosClaintdev = axios.create({
+  baseURL: `${ApiUrlDev}`,
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

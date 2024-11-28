@@ -10,12 +10,9 @@ import arrowRight from "../../assets/home/arrow-right.svg";
 import { Link } from "react-router-dom";
 // import { useAddFevorite } from "../../api/useAddToFevorit";
 import { axiosClaint, endPoints } from "../../api/API__information_conect";
-import { useCookies } from "react-cookie";
 
 const CartSlider: React.FC<any> = ({ data }) => {
   const [is_fevorite, setIsFevorite] = useState<boolean | null>(data.favorite);
-
-  const [cookie] = useCookies(["token"]);
 
   const addFevorite: () => Promise<any> = async () => {
     try {
@@ -31,6 +28,7 @@ const CartSlider: React.FC<any> = ({ data }) => {
     }
   };
 
+  console.log(data)
   return (
     <div className="bg-white shadow-lg rounded-lg p-5 hover:scale-105 hover:border-yalwe hover:border duration-300 transition-all max-w-[300px] min-w-[280px] mt-7 [flex:1]">
       {/* Image */}
@@ -115,9 +113,9 @@ const CartSlider: React.FC<any> = ({ data }) => {
           <p className="flex items-center gap-2">
             {" "}
             <span className="text-lg font-semibold  ">
-              {data.prices?.day_price ?? "null"}
+              { data.prices[`${data.renting_mode}_price`] }
             </span>
-            /day
+            /{data.renting_mode}
           </p>
         </div>
 
