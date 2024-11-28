@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*
+{
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.flex-center
+{
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded__hero_card
+{
+  border-radius:  0px 100px 0px 0px;
+}
+
+.text-gradient {
+  background: linear-gradient(60deg, #E9233A, #FFC21B 140%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mySwiper .swiper-pagination {
+  position: relative; 
+  margin-top: 40px; 
+}
+
+
+
+
+.custom-scroll::-webkit-scrollbar {
+  width: 1px; 
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #3CB44B; 
+  border-radius: 8px; 
+}
+
+.custom-scroll-2::-webkit-scrollbar {
+  width: 8px; 
+}
+.custom-scroll-2::-webkit-scrollbar-track{
+  background: transparent; 
+  border-radius: 20px;
+  background-color: #F2F1F1;
+}
+
+.custom-scroll-2::-webkit-scrollbar-thumb{
+   border-radius: 20px;
+   background: rgba(51, 51, 51,0.4);
+}
+
+.custom-scroll {
+  /* direction: rtl; */
+  scrollbar-width: thin; 
+  scrollbar-color: #3CB44B transparent;
+}
+
+.bg-diagonal-gradient {
+  background-image: linear-gradient(45deg, #EE5638CC, #EFB835CC, #FFF59BCC , #EFB437CC , #EF8436CC);
+}
+
+/* .leaflet-container {
+  height: 100vh;
+  width: 100%;
+} */
+
+.animate-login {
+  animation: spin 4s linear infinite; 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

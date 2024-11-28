@@ -1,0 +1,20 @@
+{
+    "data":[
+        {
+
+        }
+    ],
+    "pagination": {
+        "current_page": 1,
+        "first_page_url": "https:\/\/api.yjoz.com\/api\/v6\/user_products?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "https:\/\/api.yjoz.com\/api\/v6\/user_products?page=1",
+        "next_page_url": null,
+        "path": "https:\/\/api.yjoz.com\/api\/v6\/user_products",
+        "per_page": 20,
+        "prev_page_url": null,
+        "to": 11,
+        "total": 11
+    }
+}
