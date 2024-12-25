@@ -1,43 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import CartSlider from "../../homePage/CartSlider";
-import { getUserProduct } from "../../../api/postAPIs/getUserProducts";
-import { LongStaleTime } from "../../../api/API__information_conect";
-import { useDispatch, useSelector } from "react-redux";
-import { setProductsProfile } from "../../../redux/slice/myProductsSlice";
-import Loader from "../../layout/Loader";
+import {  LongStaleTime } from "../../../api/API__information_conect";
 import { AddNotification } from "../../../utails/message";
-import Slider from "../../category/Slider";
 import LoadedProducts from "../../category/LoadedProducts";
+import { getFavoriteProducts } from "../../../api/postAPIs/getFavoriteProducts";
 
-const PaginatedProducts: React.FC = () => {
+const FavoritesProducts: React.FC = () => {
+    
   const [page, setPage] = useState(1);
-  const dispatch = useDispatch()
-  const myProducts = useSelector((state:any)=>state.myProducts).data
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["get my products", page], 
-    queryFn: () => getUserProduct(page),
+
+  const { data, isLoading, isError , refetch} = useQuery({
+    queryKey: ["get my favorite products", page], 
+    queryFn: () => getFavoriteProducts(page),
     staleTime: LongStaleTime,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
     refetchInterval: false,
   });
 
+  useEffect(()=>{
+    refetch()
+  },[page])
+
+  console.log(data)
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
-
-  useEffect(()=>{
-    if(data){
-      dispatch(setProductsProfile(data.data))
-    }
-  },[data])
-
-  if (isLoading) {
-    return <div className="h-screen w-full flex-center">
-        <Loader />
-    </div>;
-  }
 
   if (isError) {
     AddNotification("error" , "Error fetching products. Please try again later." , "danger")
@@ -45,12 +34,24 @@ const PaginatedProducts: React.FC = () => {
 
   return (
     <div>
-      <div>
-      <Slider
-          data={myProducts ?? null}
-          Component={myProducts ? CartSlider : LoadedProducts}
-          plusNumber={false}
-        />
+      <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-4 xl:grid-cols-5">
+        
+        {
+            data?.data.map((item:any)=>{
+                return(
+                  <div className="flex-center">
+                    <CartSlider data={item} />
+                  </div>
+                )
+            })
+        }
+        
+        {
+            isLoading &&
+            new Array(10).map((_item)=>(
+                <LoadedProducts/>
+            ))
+        }
       </div>
       {data?.pagination && (
         <div className="flex justify-center items-center gap-4 mt-4">
@@ -78,4 +79,4 @@ const PaginatedProducts: React.FC = () => {
   );
 };
 
-export default PaginatedProducts;
+export default FavoritesProducts;

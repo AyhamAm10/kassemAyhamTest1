@@ -1,0 +1,1 @@
+export const rtl_Lang:string[] = ["ar"]

@@ -17,7 +17,7 @@ export const initialState: ProductFormState = {
     day_price: null,
     week_price: null,
     month_price: null,
-    unit_price: "1",
+    unit_price: "0.0",
     delivery_fees: null,
     vendor_delivery_support: false,
     min_rental_days: null,

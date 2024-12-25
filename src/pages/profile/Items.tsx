@@ -5,27 +5,6 @@ import PaginatedProducts from "../../component/ProfilePages/item/ProductsItems";
 
 const Items = () => {
 
-  // const [page , _setPage] = useState<number>(1)
-  // const myProducts = useSelector((state:any)=>state.myProducts).data
-  // const dispatch = useDispatch()
-
-  // const {data} = useQuery({
-  //   queryKey:["get my products"],
-  //   queryFn:()=>getUserProduct(page),
-  //   staleTime: LongStaleTime,
-  //   refetchOnWindowFocus: false,
-  //   refetchOnReconnect: false,
-  //   refetchInterval: false,
-  // })
-
-  // useEffect(()=>{
-  //   if(data){
-  //     console.log(myProducts)
-  //     dispatch(setProductsProfile(data.data))
-  //   }
-  // },[data])
-
-
   return (
     <section className=" sm:px-16 xl:px-0">
       <div className="flex items-start justify-between sm:col-span-2">
@@ -44,13 +23,6 @@ const Items = () => {
         </Link>
       </div>
       <PaginatedProducts />
-      {/* <div>
-        {
-          myProducts?.map((item:any)=>(
-            <CartSlider data={item} />
-          ))
-        }
-      </div> */}
     </section>
   );
 };

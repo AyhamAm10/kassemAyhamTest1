@@ -27,10 +27,10 @@ const Slider:React.FC<sliderProps> = ({data , Component , bg  , sliderFn , plusN
           spaceBetween={30}
           slidesPerView={plusNumber ?screenSize -1  : screenSize}
           loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
           pagination={{ clickable: true }}
           // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}

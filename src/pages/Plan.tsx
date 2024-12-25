@@ -1,5 +1,4 @@
 import { QueryKey, useQuery } from '@tanstack/react-query';
-import  { useEffect } from 'react'
 import { axiosClaint, endPoints, LongStaleTime } from '../api/API__information_conect';
 import Payment from '../component/plans/PricingPayment';
 import Loader from '../component/layout/Loader';

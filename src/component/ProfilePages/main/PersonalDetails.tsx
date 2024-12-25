@@ -10,7 +10,7 @@ import Loader from "../../layout/Loader";
 import { QueryKey, useQuery } from "@tanstack/react-query";
 import i18next from "i18next";
 import { setUserProfile } from "../../../redux/slice/userProfileSlice";
-import { AxiosResponse } from "axios";
+// import { AxiosResponse } from "axios";
 // import { setUserProfile } from "../../../redux/slice/userProfileSlice";
 
 type props = {

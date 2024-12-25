@@ -1,12 +1,12 @@
-import { QueryKey, useQuery } from "@tanstack/react-query";
+// import { QueryKey, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  axiosClaint,
-  endPoints,
-  LongStaleTime,
-} from "../../api/API__information_conect";
-import Loader from "../layout/Loader";
+// import {
+//   axiosClaint,
+//   endPoints,
+//   LongStaleTime,
+// } from "../../api/API__information_conect";
+// import Loader from "../layout/Loader";
 import { fetchMessages } from "../../api/chatApi/chat";
 import pusher from "../../utails/pusher_client";
 
@@ -19,7 +19,7 @@ interface Message {
 
 const BodyChat = () => {
     const [messages, setMessages] = useState<Message[]>([]);
-    const [newMessage, setNewMessage] = useState<string>("");
+    const [_newMessage, _setNewMessage] = useState<string>("");
 
     const channel_name = useSelector(
         (state: any) => state.chatSlice.channel_name

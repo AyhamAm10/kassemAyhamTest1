@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React  from "react";
 import Header from "./component/layout/Header";
 import ContactUs from "./pages/ContactUs";
 import { Route, Routes, useLocation } from "react-router";
@@ -22,18 +22,18 @@ import{ ReactNotifications } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import DownLoadApp from "./pages/DownLoadApp";
+import { useSelector } from "react-redux";
 
 const App: React.FC = () => {
 
   const queryClient = new QueryClient();
   const location = useLocation();
   const noFooterRoutes = ["/login" , "/register" , "/verification"];
-  // const lang = localStorage.getItem("YJOZ_lang")
-  const [lang , _setLang] = useState<string | null>(localStorage.getItem("YJOZ_lang"))
-  
-
+  // const [lang , _setLang] = useState<string | null>(localStorage.getItem("YJOZ_lang"))
+  // const lang:string = useSelector((state:any)=>state.languageSlice).language
+  const dir:"ltr" | "rtl" = useSelector((state:any)=>state.languageSlice).direction
   return (
-    <div dir={lang == "ar" ? "rtl" : "ltr"} className="overflow-hidden ">
+    <div dir={dir} className="overflow-hidden ">
          {!noFooterRoutes.includes(location.pathname) && <Header />}
       <QueryClientProvider client={queryClient}>
         <main className="bg-primery">

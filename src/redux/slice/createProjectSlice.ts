@@ -9,6 +9,7 @@ const productFormSlice = createSlice({
             return { ...state, ...action.payload };
         },
         resetForm: () => initialState,
+        
     },
 });
 

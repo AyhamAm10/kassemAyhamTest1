@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { axiosClaint, endPoints } from "../../api/API__information_conect";
 
 const CartSlider: React.FC<any> = ({ data }) => {
-  const [is_fevorite, setIsFevorite] = useState<boolean | null>(data.favorite);
+  const [is_fevorite, setIsFevorite] = useState<boolean | null>(data?.favorite);
 
   const addFevorite: () => Promise<any> = async () => {
     try {

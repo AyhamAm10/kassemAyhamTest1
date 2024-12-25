@@ -14,6 +14,7 @@ import updatedAddress from "./slice/updatedAddressSlice"
 import chatSlice from "./slice/chatSlice";
 import myProducts from "./slice/myProductsSlice"
 import AgreeForAddProduct from './slice/AgreeForAddProduct'
+import languageSlice from "./slice/LanguageSLice"
 export const store = configureStore({
   reducer: {
     categorySlice,
@@ -30,7 +31,8 @@ export const store = configureStore({
     updatedAddress,
     chatSlice,
     myProducts,
-    AgreeForAddProduct
+    AgreeForAddProduct,
+    languageSlice
   },
 });
 

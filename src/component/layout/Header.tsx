@@ -12,13 +12,16 @@ import menu from "../../assets/f7_menu.svg";
 import MobileList from "../homePage/MobileList";
 import { useTranslation } from "react-i18next";
 import avatar from "../../assets/avatar.png"
+import { useDispatch } from "react-redux";
+import { setLanguage } from "../../redux/slice/LanguageSLice";
+import { rtl_Lang } from "../../content/lang";
 const Header = () => {
   let location = useLocation();
   const [ListItem, setListItem] = useState<headerType[]>(headerList);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isMenuProfileOpen, setMenuProfileOpen] = useState(false);
   const { i18n } = useTranslation();
-
+  const dispatch = useDispatch()
   useEffect(() => {
     const newList = ListItem.map((item) =>
       location.pathname === item._id
@@ -34,10 +37,12 @@ const Header = () => {
   };
 
   const changeLanguage = () => {
-    const newLanguage = i18n.language === "en" ? "ar" : "en";
+    const newLanguage:string = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLanguage)
       .then(() => {
         localStorage.setItem("YJOZ_lang" , newLanguage)
+        const dir: "rtl" | "ltr" = rtl_Lang.includes(newLanguage)?"rtl":"ltr"
+        dispatch(setLanguage({language:newLanguage , direction: dir}))
       })
       .catch((error) => {
         console.error("Error changing language:", error);
@@ -96,7 +101,7 @@ const Header = () => {
             className="rounded-full border border-[#E0E0E0] min-w-[80px] px-2 py-2 flex items-center justify-center gap-2 "
           >
             <img src={Language} width={25} alt="language" />
-            <h3 className="text-ofblack font-semibold text-sm">EN</h3>
+            <h3 className="text-ofblack font-semibold text-sm">{i18n.language}</h3>
           </button>
 
           {

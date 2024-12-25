@@ -1,6 +1,6 @@
 export interface Discount {
-    type: string;
-    value: number;
+  unit_count: number;
+  discount_price: number;
 }
 
 export interface Attribute {
@@ -8,60 +8,25 @@ export interface Attribute {
     size: string;
 }
 
-// export interface City {
-//     city_id: number;
-//     city_name: string;
-// }
-
 export interface Image {
     name: string;
     url: string;
 }
 
-// export interface ProductFormState {
-//     product_id: string ;
-//     is_renting_support: "support" | "not_support";
-//     is_selling_support: "support" | "not_support";
-//     category_id: number | null;
-//     sub_category_id: number | null;
-//     address_id: number | null;
-//     title: string;
-//     description: string;
-//     item_price: number | null;
-//     tag_id: number | null;
-//     quantity: number | null;
-//     renting_mode: string;
-//     day_price: number | null;
-//     week_price: number | null;
-//     month_price: number | null;
-//     unit_price: number | null;
-//     delivery_fees: number | null;
-//     vendor_delivery_support: boolean;
-//     min_rental_days: number | null;
-//     min_rental_units: number | null;
-//     renting_unit_id: number | null;
-//     brand_id: number | null;
-//     rent_to_buy: boolean;
-//     subscription_id: number | null;
-//     discounts: Discount[];
-//     attributes: Attribute[];
-//     cities: string[];
-//     images: File[];
-// }
 
 export interface ProductFormState {
     product_id?: string;
     is_renting_support: "support" | "not_support";
     is_selling_support: "support" | "not_support";
-    category_id: string | null; // UUID
-    sub_category_id: string | null; // UUID
-    address_id: string | null; // UUID
+    category_id: string | null; 
+    sub_category_id: string | null; 
+    address_id: string | null; 
     title: string;
     description: string;
     item_price: number | null;
-    tag_id: string | null; // UUID
+    tag_id: string | null; 
     quantity: number | null;
-    renting_mode: "day" | "week" | "month" | ""; // Restrict possible values
+    renting_mode: "day" | "unit" ;
     day_price: number | null;
     week_price: number | null;
     month_price: number | null;
@@ -70,14 +35,14 @@ export interface ProductFormState {
     vendor_delivery_support: boolean;
     min_rental_days: number | null;
     min_rental_units: number | null;
-    renting_unit_id: string | null; // UUID
-    brand_id: string | null; // UUID
+    renting_unit_id: string | null; 
+    brand_id: string | null; 
     rent_to_buy: string;
-    subscription_id: string | null; // UUID
-    discounts: Discount[]; // Array of custom type for discounts
-    attributes: Attribute[]; // Array of custom type for attributes
-    cities: City[]; // Changed from string[] to structured objects
-    images: File[]; // Assuming the files are uploaded as a binary array
+    subscription_id: string | null; 
+    discounts: Discount[]; 
+    attributes: Attribute[]; 
+    cities: City[]; 
+    images: File[]; 
   }
   
   export interface Discount {

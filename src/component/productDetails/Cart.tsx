@@ -13,7 +13,6 @@ import view from "../../assets/productDetails/view.svg";
 import CostumBtn from "../costumeComponent/CostumBtn";
 import { Link } from "react-router-dom";
 import { axiosClaint, endPoints } from "../../api/API__information_conect";
-import { useCookies } from "react-cookie";
 import { useState } from "react";
 const Cart: React.FC = () => {
 
@@ -22,7 +21,6 @@ const Cart: React.FC = () => {
   ).productDetailsState;
 
   const [is_fevorite, setIsFevorite] = useState<boolean | null>(product.favorite);
-  const [cookie] = useCookies(["token"]);
 
   console.log(product)
   const handleShareClick = () => {

@@ -8,8 +8,8 @@ import ResetPassword from "../../component/ProfilePages/main/ResetPassword";
 import DeleteAccount from "../../component/ProfilePages/main/DeleteAccount";
 import { useEffect } from "react";
 import {
-  axiosClaint,
-  endPoints,
+  // axiosClaint,
+  // endPoints,
   LongStaleTime,
 } from "../../api/API__information_conect";
 import { UserProfile } from "../../type/reduxType";

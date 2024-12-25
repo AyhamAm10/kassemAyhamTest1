@@ -27,7 +27,9 @@ const Renting = () => {
   });
 
   const handleSelectRenting = (e: ChangeEvent<HTMLSelectElement>) => {
+    const renting_mode = e.target.value == "false"? "day": "unit"
     dispatch(setFormData({ renting_unit_id: e.target.value }));
+    dispatch(setFormData({ renting_mode }));
   };
 
   return (
@@ -44,7 +46,7 @@ const Renting = () => {
         className="p-3 text-dark opacity-40 rounded-sm  sm:w-full bg-white lg:w-[30rem]"
         id=""
       >
-        <option value="">select renting</option>
+        <option value="false">dailly</option>
         {data?.data.map((item: any) => (
           <option key={item.id} value={item.id}>
             {item.label}
